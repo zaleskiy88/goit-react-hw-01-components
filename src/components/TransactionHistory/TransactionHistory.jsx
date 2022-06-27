@@ -4,6 +4,7 @@ import {
   TransactionsHistoryThead,
   TransactionsHistoryTbody,
 } from './TransactionTable.styled';
+import { capitalizeFirstLowercaseRest } from 'utils/capitalizeFirstLowercaseRest';
 
 export const TransactionsTable = ({ items }) => {
   return (
@@ -11,19 +12,18 @@ export const TransactionsTable = ({ items }) => {
       <TransactionsHistoryThead>
         <>
           <tr>
-            <th>Type</th>
-            <th>Amount</th>
-            <th>Currency</th>
+            <th>{'Type'.toUpperCase()}</th>
+            <th>{'Amount'.toUpperCase()}</th>
+            <th>{'Currency'.toUpperCase()}</th>
           </tr>
         </>
       </TransactionsHistoryThead>
 
       {items.map(item => {
-        // const { id, type, amount, currency } = item;
         return (
           <TransactionsHistoryTbody key={item.id}>
             <tr>
-              <td>{item.type}</td>
+              <td>{capitalizeFirstLowercaseRest(item.type)}</td>
               <td>{item.amount}</td>
               <td>{item.currency}</td>
             </tr>
